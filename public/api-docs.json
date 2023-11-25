@@ -7,7 +7,7 @@
   },
   "host": "api-escribo-rfqv.onrender.com",
   "basePath": "/",
-  "schemes": ["http"],
+  "schemes": ["https"],
   "paths": {
     "/signup": {
       "post": {
