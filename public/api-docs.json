@@ -1,0 +1,144 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Desafio2 API",
+    "description": "API para autenticação de usuários"
+  },
+  "basePath": "/api",
+  "schemes": ["http"],
+  "paths": {
+    "/signup": {
+      "post": {
+        "summary": "Cadastro de Usuário",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserSignup"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Cadastro realizado com sucesso",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "400": {
+            "description": "E-mail já existente"
+          }
+        }
+      }
+    },
+    "/signin": {
+      "post": {
+        "summary": "Autenticação de Usuário",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserSignin"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Autenticação bem-sucedida",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "401": {
+            "description": "Usuário e/ou senha inválidos"
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "summary": "Buscar Usuário",
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "schema": {
+              "$ref": "#/definitions/UserResponse"
+            }
+          },
+          "401": {
+            "description": "Não autorizado"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserSignup": {
+      "type": "object",
+      "properties": {
+        "nome": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "senha": {
+          "type": "string"
+        },
+        "telefones": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserSignin": {
+      "type": "object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "senha": {
+          "type": "string"
+        }
+      }
+    },
+    "UserResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "data_criacao": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "ultimo_login": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "BearerAuth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  }
+}
