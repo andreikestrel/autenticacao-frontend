@@ -6,7 +6,7 @@
     "description": "API para autenticação de usuários, desenvolvida para o desafio 2 para a escribo."
   },
   "host": "api-escribo-rfqv.onrender.com",
-  "basePath": "/api",
+  "basePath": "/",
   "schemes": ["http"],
   "paths": {
     "/signup": {
