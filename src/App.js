@@ -10,7 +10,7 @@ function App() {
 
  return (
     <div className="App">
-      <SwaggerUI url="/api-docs.json" />
+      <SwaggerUI url="./api-docs.json" />
     </div>
  );
 }
