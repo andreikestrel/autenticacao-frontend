@@ -3,8 +3,9 @@
   "info": {
     "version": "1.0.0",
     "title": "Desafio2 API",
-    "description": "API para autenticação de usuários"
+    "description": "API para autenticação de usuários, desenvolvida para o desafio 2 para a escribo."
   },
+  "host": "api-escribo-rfqv.onrender.com",
   "basePath": "/api",
   "schemes": ["http"],
   "paths": {
